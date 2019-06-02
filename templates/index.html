@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+   首页
+{% endblock %}
+{% block content %}
+
+<h1>这是夏天最容易出现的文字{{ name }}</h1>
+<h1>年龄{{ age }}</h1>
+<h1>性别{{ gender }}</h1>
+<hr>
+<h1>姓名{{ person.name }}</h1>
+<h1>年龄{{ person.age }}</h1>
+<hr>
+<h1>{{ websites['baidu']}}</h1>
+<h1>{{ websites.google }}</h1>
+{% endblock content %}

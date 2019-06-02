@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{#    {% for k,v in user.items() %}#}
+{#        <p>{{ k }} : {{v}}</p>#}
+{#    {% endfor %}#}
+{##}
+{#    <ul>#}
+{#       {% for website in websites %}#}
+{#         <li> {{ website }} </li>#}
+{#       {% endfor %}#}
+{#    </ul>#}
+{% block title %}
+   作者页
+{% endblock %}
+{% block content %}
+
+<table>
+    <thead>
+    <th>书名</th>
+    <th>作者</th>
+    <th>价格</th>
+    </thead>
+    <tbody>
+      {% for foo in classicbook %}
+            <tr>
+               <td>{{ foo.bookname }}</td>
+               <td>{{ foo.author }}</td>
+               <td>{{ foo.price }}</td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{% endblock  %}

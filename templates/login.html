@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    登录
+{% endblock %}
+{% block content %}
+   {% if user and user.age > 25%}
+       <a href={{url_for("hello_world")}}>{{user['name']}} </a>
+       <a href="#"> 注销 </a>
+    {% else %}
+        <a href="#"> 登录 </a>
+        <a href="#"> 注册 </a>
+    {% endif %}
+{% endblock content %}
+
+

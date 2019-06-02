@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <img src="{{ avater|default('https://upload.jianshu.io/users/upload_avatars/14359574/890809a8-33c7-40b9-8848-dab780601634.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96') }}" alt="显示图片">
+<hr>
+
+<p>评论数：({{ context|length }})</p>
+<ul>
+    {% for ct in context %}
+        <p>{{ ct.name }}</p>
+        <p>{{ ct.content }}</p>
+    {% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+        <style>
+        .nav{
+            background: chocolate;
+            height: 65px;
+        }
+        ul{
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            list-style: none;
+            padding: 10px;
+            line-height: normal;
+            align-content: center;
+
+        }
+        ul li a{
+            color: aquamarine;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+    {% endblock %}
+</head>
+<body>
+{% block nav %}
+ <img src="{{ url_for('static',filename='images/default_avatar.png') }}",alt="这里是发图片的地方" height="150px",width="150px">
+<div class="nav">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">发布问题</a></li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
