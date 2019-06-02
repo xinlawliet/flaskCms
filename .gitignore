@@ -1,0 +1,9 @@
+# Idea
+.idea/
+
+# pipenv
+Pipfile.lock
+
+# py cache
+*.pyc
+__pycache__/
