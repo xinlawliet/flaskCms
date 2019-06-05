@@ -5,8 +5,8 @@ DEVELOPMENT = True
 #dialect+driver://username:password@host:port/database
 DIALECT='mysql'
 DRIVER='pymysql'
-USERNAME='****'
-PASSWORD='****'
+USERNAME='root'
+PASSWORD='123456'
 HOST='127.0.0.1'
 PORT='3306'
 DATABASE='db_demo1'

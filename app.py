@@ -2,11 +2,22 @@
 from flask import Flask, url_for, redirect, session, make_response, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 import config
+
 app = Flask(__name__)
 app.config.from_object(config)
+
 db = SQLAlchemy(app)
 
+
+class Article(db.Model):
+    __tablename__ = 'article'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+
+
 db.create_all()
+
 
 @app.route('/')
 def hello_world():
@@ -43,7 +54,14 @@ def my_list():
 
 @app.route('/article/<number>')
 def article(number):
-    return '您请求的参数是: %s' % number
+    # #增加：
+    # article1 = Article(title='how to xxoo',content='您想 how to play %s ' % number)
+    # db.session.add(article1)
+    # #事务的提交
+    # db.session.commit()
+    result = Article.query.filter(Article.title=="how to xxoo").all()
+    print(result[0])
+    return '您请求的参数是: %s' % result[0]
 
 # 这是发布问题链接
 @app.route('/question/<is_login>')
@@ -80,23 +98,23 @@ def home():
 @app.route('/books')
 def book():
     classicbook = [
-         {
+        {
             'bookname': '西游记',
             'author': '吴承恩',
-            'price':150
-           },
-         {
+            'price': 150
+        },
+        {
             'bookname': '红楼梦',
             'author': '曹雪芹',
-            'price':200
-         },
-         {
-             'bookname': '三国演义',
-             'author': '罗贯中',
-             'price': 160
+            'price': 200
+        },
+        {
+            'bookname': '三国演义',
+            'author': '罗贯中',
+            'price': 160
 
-         },
-         {
+        },
+        {
             'bookname': '水浒传',
             'author': '施耐庵',
             'price': 130
@@ -105,18 +123,23 @@ def book():
 
     return render_template('home.html', classicbook=classicbook)
 
+
 @app.route('/picture')
 def picture():
-    context=[
-       {
-        'name':'zhiniaoketang',
-        'content':'妖神记'
-       },{
-        'name': 'mituyoufang',
-        'content': '食戟之灵'
-       }
+    context = [
+        {
+            'name': 'zhiniaoketang',
+            'content': '妖神记'
+        }, {
+            'name': 'mituyoufang',
+            'content': '食戟之灵'
+        }
     ]
-    return  render_template('filter.html',avater='https://edu-image.nosdn.127.net/37b647007b764cf2ab6d779b865e869c.jpg?imageView&quality=100&crop=0_1_879_494&thumbnail=450y250',context=context)
+    return render_template(
+        'filter.html',
+        avater='https://edu-image.nosdn.127.net/37b647007b764cf2ab6d779b865e869c.jpg?imageView&quality=100&crop=0_1_879_494&thumbnail=450y250',
+        context=context)
+
 
 if __name__ == '__main__':
     app.run()
