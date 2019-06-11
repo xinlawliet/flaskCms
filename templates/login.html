@@ -10,6 +10,11 @@
         <a href="#"> 登录 </a>
         <a href="#"> 注册 </a>
     {% endif %}
+    <hr>
+    {% for i in range(result|length) %}
+         "作者 {{otheruser.username }} 有书籍, {{i+1}}--{{ result[i].title }}"<br>
+    {% endfor %}
+
 {% endblock content %}
 
 

@@ -1,6 +1,4 @@
 # encoding:utf-8
-# Enable debug mode
-DEVELOPMENT = True
 
 #dialect+driver://username:password@host:port/database
 DIALECT='mysql'

@@ -1,8 +1,8 @@
-#from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
-#db = SQLAlchemy()
+db = SQLAlchemy()
 
-#from .article import Artilce
+from .db_model import Article,Art,User,Tag
 
 
 
